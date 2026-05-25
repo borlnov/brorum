@@ -4,25 +4,26 @@
 
 import 'package:brorum/constants/graphical_constants.dart' as graphical_constants;
 import 'package:brorum/models/ui/themes/bro_specific_colors.dart';
+import 'package:brorum/ui/widgets/list_tiles/bro_content_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-/// This is a list tile used to represent a parameter
-class ParameterListTile extends StatelessWidget {
+/// This is a list tile used to represent a menu parameter
+class ParameterMenuListTile extends StatelessWidget {
   /// The icon of the list tile.
   final IconData icon;
 
-  /// The title of the list tile.
+  /// {@macro BroContentListTile.title}
   final String title;
 
-  /// The subtitle of the list tile.
+  /// {@macro BroContentListTile.subtitle}
   final String subtitle;
 
   /// The callback called when the user taps on the list tile.
   final VoidCallback? onTap;
 
   /// Class constructor
-  const ParameterListTile({
+  const ParameterMenuListTile({
     super.key,
     required this.icon,
     required this.title,
@@ -56,43 +57,17 @@ class ParameterListTile extends StatelessWidget {
               ),
               SizedBox(width: 10.w),
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: themeData.textTheme.titleSmall?.copyWith(
-                        color: _applyDisabledColorIfNeeded(
-                          actExt: actExt,
-                          color: themeData.colorScheme.onSurface,
-                        ),
-                      ),
+                child: BroContentListTile(
+                  title: title,
+                  subtitle: subtitle,
+                  enabled: onTap != null,
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16.w,
+                    color: _applyDisabledColorIfNeeded(
+                      actExt: actExt,
+                      color: themeData.colorScheme.outline,
                     ),
-                    SizedBox(height: 6.w),
-                    Text(
-                      subtitle,
-                      maxLines: 2,
-                      style: themeData.textTheme.bodyMedium?.copyWith(
-                        color: _applyDisabledColorIfNeeded(
-                          actExt: actExt,
-                          color: themeData.colorScheme.outline,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(width: 12.w),
-              Container(
-                height: double.infinity,
-                alignment: Alignment.center,
-                child: Icon(
-                  Icons.arrow_forward_ios,
-                  size: 16.w,
-                  color: _applyDisabledColorIfNeeded(
-                    actExt: actExt,
-                    color: themeData.colorScheme.outline,
                   ),
                 ),
               ),
