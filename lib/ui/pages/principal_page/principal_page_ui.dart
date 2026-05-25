@@ -67,7 +67,7 @@ class PrincipalPageUI extends StatelessWidget {
     required ThemeData themeData,
     required Tr tr,
     required PrincipalPageState state,
-  }) => Center(child: Text("(TR) Home Sub Page"));
+  }) => const Center(child: Text("(TR) Home Sub Page"));
 
   /// Called to build the settings sub page of the principal page.
   Widget _buildSettingsSubPage({

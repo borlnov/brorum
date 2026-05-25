@@ -7,31 +7,36 @@ import 'package:act_themes_manager/act_themes_manager.dart';
 import 'package:flutter/widgets.dart' show Brightness;
 
 /// This is the state of the themes settings page of the application.
-class ThemesSettingsState extends BlocStateForMixin<ThemesSettingsState>
-    with MixinActThemesState<ThemesSettingsState> {
+class ThemesSettingsPageState extends BlocStateForMixin<ThemesSettingsPageState>
+    with MixinActThemesState<ThemesSettingsPageState> {
   /// {@macro act_themes_manager.MixinActThemesState.currentTheme}
+  @override
   final MixinActThemes currentTheme;
 
   /// {@macro act_themes_manager.MixinActThemesState.brightness}
+  @override
   final Brightness? brightness;
 
   /// Class constructor
-  const ThemesSettingsState({required this.currentTheme, required this.brightness});
+  const ThemesSettingsPageState({required this.currentTheme, required this.brightness});
+
+  /// Initial state constructor
+  const ThemesSettingsPageState.init({required this.currentTheme, required this.brightness});
 
   /// {@macro act_flutter_utility.BlocStateForMixin.copyWith}
   @override
-  ThemesSettingsState copyWith({
+  ThemesSettingsPageState copyWith({
     MixinActThemes? currentTheme,
     Brightness? brightness,
     bool forceBrightnessValue = false,
-  }) => ThemesSettingsState(
+  }) => ThemesSettingsPageState(
     currentTheme: currentTheme ?? this.currentTheme,
     brightness: forceBrightnessValue ? brightness : (brightness ?? this.brightness),
   );
 
   /// {@macro act_themes_manager.MixinActThemesState.copyActThemesState}
   @override
-  ThemesSettingsState copyActThemesState({
+  ThemesSettingsPageState copyActThemesState({
     MixinActThemes? currentTheme,
     Brightness? brightness,
     bool forceBrightnessValue = false,

@@ -2,11 +2,10 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import 'package:brorum/constants/graphical_constants.dart' as graphical_constants;
 import 'package:brorum/generated/l10n.dart';
 import 'package:brorum/types/ui/principal_sub_page_types.dart';
+import 'package:brorum/ui/widgets/app_bars/bro_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// This is the skeleton of the sub pages of the principal page.
 class SubPrincipalPageSkeleton extends StatelessWidget {
@@ -21,24 +20,13 @@ class SubPrincipalPageSkeleton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeData = Theme.of(context);
     final tr = Tr.of(context);
 
     return Column(
       children: [
-        Container(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(
-            vertical: 16.h,
-            horizontal: graphical_constants.mainHorizontalPadding.w,
-          ),
-          color: themeData.primaryColor,
-          child: Text(
-            subPageType.getPageName(tr: tr),
-            style: themeData.textTheme.headlineSmall?.copyWith(
-              color: themeData.colorScheme.onPrimary,
-            ),
-          ),
+        BroAppBar.builder(
+          context: context,
+          title: subPageType.getPageName(tr: tr),
         ),
         Expanded(child: SingleChildScrollView(child: child)),
       ],

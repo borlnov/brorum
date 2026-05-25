@@ -327,4 +327,14 @@ TextTheme _overrideDefaultTextTheme({required ThemeData baseThemeData}) =>
     );
 
 /// This is the default theme data override for all the themes of the application.
-ThemeData _overrideDefaultThemeData({required ThemeData baseThemeData}) => baseThemeData;
+ThemeData _overrideDefaultThemeData({required ThemeData baseThemeData}) => baseThemeData.copyWith(
+  appBarTheme: baseThemeData.appBarTheme.copyWith(
+    backgroundColor: baseThemeData.colorScheme.primary,
+    foregroundColor: baseThemeData.colorScheme.onPrimary,
+    toolbarHeight: 56.h,
+    titleSpacing: 0,
+    titleTextStyle: baseThemeData.textTheme.headlineSmall?.copyWith(
+      color: baseThemeData.colorScheme.onPrimary,
+    ),
+  ),
+);

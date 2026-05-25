@@ -51,12 +51,12 @@ class BroBottomNavigationBar extends StatelessWidget {
     required PrincipalSubPageTypes type,
   }) => switch (type) {
     PrincipalSubPageTypes.home => BottomNavigationBarItem(
-      icon: Icon(Icons.home),
-      label: '(TR) Home',
+      icon: const Icon(Icons.home),
+      label: tr.subPageNameHome,
     ),
     PrincipalSubPageTypes.settings => BottomNavigationBarItem(
-      icon: Icon(Icons.settings),
-      label: '(TR) Settings',
+      icon: const Icon(Icons.settings),
+      label: tr.subPageNameSettings,
     ),
   };
 }

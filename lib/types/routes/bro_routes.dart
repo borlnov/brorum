@@ -10,7 +10,10 @@ enum BroRoutes with MixinRoute {
   error,
 
   /// The principal page
-  principal;
+  principal,
+
+  /// The themes settings page
+  themesSettings;
 
   /// {@macro act_router_manager.MixinRoute.parent}
   @override

@@ -6,5 +6,95 @@
         "description": "The application title",
         "type": "text",
         "placeholders": {}
+    },
+    "themeLabelAgoraNature": "Agora Nature",
+    "@themeLabelAgoraNature": {
+        "description": "The label of the Agora Nature theme",
+        "type": "text",
+        "placeholders": {}
+    },
+    "themeLabelConstellation": "Constellation",
+    "@themeLabelConstellation": {
+        "description": "The label of the Constellation theme",
+        "type": "text",
+        "placeholders": {}
+    },
+    "themeLabelNordicCalm": "Nordic Calm",
+    "@themeLabelNordicCalm": {
+        "description": "The label of the Nordic Calm theme",
+        "type": "text",
+        "placeholders": {}
+    },
+    "subPageNameHome": "Home",
+    "@subPageNameHome": {
+        "description": "The name of the home sub page",
+        "type": "text",
+        "placeholders": {}
+    },
+    "subPageNameSettings": "Settings",
+    "@subPageNameSettings": {
+        "description": "The name of the settings sub page",
+        "type": "text",
+        "placeholders": {}
+    },
+    "settingsAppearanceSectionTitle": "Appearance",
+    "@settingsAppearanceSectionTitle": {
+        "description": "The title of the appearance settings section",
+        "type": "text",
+        "placeholders": {}
+    },
+    "settingsThemeTitle": "Theme",
+    "@settingsThemeTitle": {
+        "description": "The title of the theme settings",
+        "type": "text",
+        "placeholders": {}
+    },
+    "settingsThemeSubtitle": "Select the theme of the application",
+    "@settingsThemeSubtitle": {
+        "description": "The subtitle of the theme settings",
+        "type": "text",
+        "placeholders": {}
+    },
+    "themesSettingsUiTitle": "Themes settings",
+    "@themesSettingsUiTitle": {
+        "description": "The title of the themes settings page",
+        "type": "text",
+        "placeholders": {}
+    },
+    "darkModeThemesSectionTitle": "Dark mode",
+    "@darkModeThemesSectionTitle": {
+        "description": "The title of the dark mode themes section in the themes settings page",
+        "type": "text",
+        "placeholders": {}
+    },
+    "settingsSystemBrightnessTitle": "Use system brightness",
+    "@settingsSystemBrightnessTitle": {
+        "description": "The title of the system brightness setting in the themes settings page",
+        "type": "text",
+        "placeholders": {}
+    },
+    "settingsSystemBrightnessSubtitle": "If true, the app uses the system brightness. Otherwise, it uses the brightness selected in the app.",
+    "@settingsSystemBrightnessSubtitle": {
+        "description": "The subtitle of the system brightness setting in the themes settings page",
+        "type": "text",
+        "placeholders": {}
+    },
+    "settingsDarkModeTitle": "Dark mode",
+    "@settingsDarkModeTitle": {
+        "description": "The title of the dark mode setting in the themes settings page",
+        "type": "text",
+        "placeholders": {}
+    },
+    "settingsDarkModeSubtitle": "If true, the app uses the dark theme. Otherwise, it uses the light theme.",
+    "@settingsDarkModeSubtitle": {
+        "description": "The subtitle of the dark mode setting in the themes settings page",
+        "type": "text",
+        "placeholders": {}
+    },
+    "themeSectionTitle": "Theme",
+    "@themeSectionTitle": {
+        "description": "The title of the theme section in the themes settings page",
+        "type": "text",
+        "placeholders": {}
     }
 }

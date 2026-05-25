@@ -14,7 +14,7 @@ enum PrincipalSubPageTypes {
 
   /// This method returns the name of the sub page type in the current language.
   String getPageName({required Tr tr}) => switch (this) {
-    PrincipalSubPageTypes.home => "(TR) Home",
-    PrincipalSubPageTypes.settings => "(TR) Settings",
+    PrincipalSubPageTypes.home => tr.subPageNameHome,
+    PrincipalSubPageTypes.settings => tr.subPageNameSettings,
   };
 }
