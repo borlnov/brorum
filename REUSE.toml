@@ -1,0 +1,10 @@
+version = 1
+SPDX-PackageName = "brorum"
+SPDX-PackageSupplier = "Benoit Rolandeau <borlnov.obsessio@gmail.com>"
+SPDX-PackageDownloadLocation = "https://github.com/borlnov/brorum"
+
+[[annotations]]
+path = "lib/l10n/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = ["2026 Benoit Rolandeau <borlnov.obsessio@gmail.com>"]
+SPDX-License-Identifier = "Apache-2.0"
