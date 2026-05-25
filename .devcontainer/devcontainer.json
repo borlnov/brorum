@@ -1,0 +1,70 @@
+// SPDX-FileCopyrightText: 2026 Théo Magne <theo.magne@allcircuits.com>
+//
+// SPDX-License-Identifier: LicenseRef-ALLCircuits-ACT-1.1
+{
+    "name": "Dev Environment",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".",
+        "args": {
+            "USERNAME": "debian"
+        }
+    },
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+    // Mount .ssh from the host to allow git operations that require authentication to work inside the container
+    "mounts": [
+        "source=${localEnv:HOME}/.ssh,target=/home/debian/.ssh,type=bind,consistency=cached"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Dart-Code.flutter",
+                "Dart-Code.dart-code",
+                "EditorConfig.EditorConfig",
+                "DavidAnson.vscode-markdownlint",
+                "yzhang.markdown-all-in-one",
+                "mhutchie.git-graph",
+                "donjayamanne.githistory",
+                "eamodio.gitlens",
+                "heltonricardo.heltonricardo-vscode-organize-and-format",
+                "github.vscode-github-actions",
+                "ms-azuretools.vscode-containers",
+                "MermaidChart.vscode-mermaid-chart",
+                "bierner.markdown-mermaid",
+                "Google.arb-editor",
+                "localizely.flutter-intl",
+                "psioniq.psi-header"
+            ]
+        }
+    },
+    // Install the various dependencies for the project after the container starts. This includes:
+    // - Flutter dependencies for the Flutter apps
+    // - C++ dependencies for the C++ apps
+    // - Setting up the Yocto SDK for building the embedded Linux images
+    "postCreateCommand": {
+        "flutter pub ui": "cd /workspace && flutter pub get",
+        "act flutter libs get": "./actlibs/tool/pub_get_all.sh",
+        // Start the ADB server so USB-connected Android devices are detected on container startup
+        "adb start-server": "adb start-server"
+    },
+    // Use 'debian' as the default user inside the container
+    "remoteUser": "debian",
+    // Forward the X11 socket to allow GUI applications to run inside the container
+    "containerEnv": {
+        "DISPLAY": "unix${localEnv:DISPLAY}"
+    },
+    "runArgs": [
+        "--privileged",
+        "--volume=/tmp/.X11-unix:/tmp/.X11-unix:z",
+        "--volume=/dev/bus/usb:/dev/bus/usb",
+        "--network=host"
+    ],
+    "forwardPorts": [
+        8081,
+        5037
+    ]
+}

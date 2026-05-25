@@ -1,0 +1,7 @@
+version = 1
+
+[[annotations]]
+path = "BBBReadMe/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Copyright 2026 The BBBReadme Authors (https://gitlab.com/bye-bye-binary/bbb-readme)"
+SPDX-License-Identifier = "LicenseRef-CUTE-202401"

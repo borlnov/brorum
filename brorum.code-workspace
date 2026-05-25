@@ -1,0 +1,55 @@
+{
+    "folders": [
+        {
+            "name": "brorum",
+            "path": "."
+        },
+    ],
+    "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "[yaml]": {
+            "editor.insertSpaces": true,
+            "editor.tabSize": 2,
+            "editor.autoIndent": "keep",
+            "editor.formatOnSave": false
+        },
+        "[github-actions-workflow]": {
+            "editor.formatOnSave": false,
+            "editor.tabSize": 2
+        },
+        // Dart file header settings (psi-header extension)
+        "psi-header.config": {
+            "forceToTop": true,
+            "blankLinesAfter": 1,
+            "license": "Custom"
+        },
+        "psi-header.changes-tracking": {
+            "autoHeader": "manualSave",
+            "include": [
+                "dart"
+            ]
+        },
+        "psi-header.lang-config": [
+            {
+                "language": "dart",
+                "begin": "",
+                "prefix": "//",
+                "end": "",
+                "afterHeader": ""
+            }
+        ],
+        "psi-header.templates": [
+            {
+                "language": "dart",
+                "template": [
+                    " SPDX-FileCopyrightText: <<year>> <<author>> <<<authoremailbro>>>",
+                    "",
+                    " SPDX-License-Identifier: Apache-2.0"
+                ]
+            }
+        ],
+        "dart.debugExternalPackageLibraries": true,
+        "dart.debugSdkLibraries": true,
+        "dart.lineLength": 100
+    }
+}

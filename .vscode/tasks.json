@@ -1,0 +1,70 @@
+// SPDX-FileCopyrightText: 2026 Théo Magne <theo.magne@allcircuits.com>
+//
+// SPDX-License-Identifier: LicenseRef-ALLCircuits-ACT-1.1
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "UI: Generate translation",
+            "type": "shell",
+            "command": "dart",
+            "args": [
+                "run",
+                "intl_utils:generate",
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "UI: Build",
+            "hide": true,
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "bundle",
+                "--debug"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "UI: Deploy",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "rsync -avz --delete build/flutter_assets/ root@${input:targetIp}:${input:onTargetFlutterAppDir}/data/flutter_assets/"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": "UI: Build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Ui: Pre debug launch",
+            "hide": true,
+            "dependsOn": [
+                "UI: Generate translation"
+            ]
+        }
+    ],
+    "inputs": []
+}
