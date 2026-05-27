@@ -6,3 +6,25 @@
 themes:
   # The default theme to use when the app is launched for the first time.
   default: nordic_calm
+
+# The licenses configuration
+licenses:
+  # The extra elements and their licenses
+  extraElements:
+    ACT packages:
+      - CC0-1.0
+      - MIT
+      - LicenseRef-ALLCircuits-ACT-1.1
+      - LicenseRef-DartProjectAuthors
+    BROrum:
+      - Apache-2.0
+      - LicenseRef-ALLCircuits-ACT-1.1
+      - CC0-1.0
+      - MIT
+    Font BBBReadMe:
+      - LicenseRef-CUTE-202401
+
+  # The assets folders to look for licenses files
+  assetsFolders:
+    - LICENSES
+    - actlibs/LICENSES

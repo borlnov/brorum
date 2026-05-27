@@ -4,6 +4,7 @@
 
 import 'package:act_global_manager/act_global_manager.dart';
 import 'package:act_intl/act_intl.dart';
+import 'package:act_licenses_manager/act_licenses_manager.dart';
 import 'package:act_logger_manager/act_logger_manager.dart';
 import 'package:act_platform_manager/act_platform_manager.dart';
 import 'package:act_themes_manager/act_themes_manager.dart';
@@ -42,6 +43,7 @@ class BroGlobalManager extends AbsUiGlobalManager {
     registerManagerAsync<ActThemesManager>(
       ActThemesBuilder<BroConfigManager, BroPropertiesManager>(appThemes: BroThemes.values),
     );
+    registerManagerAsync<ActLicensesManager>(ActLicensesBuilder<BroConfigManager>());
     registerManagerAsync<BroRoutesManager>(const BroRoutesBuilder());
   }
 }

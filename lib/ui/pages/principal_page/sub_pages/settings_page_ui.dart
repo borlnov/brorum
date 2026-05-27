@@ -4,6 +4,7 @@
 
 import 'package:act_global_manager/act_global_manager.dart';
 import 'package:brorum/generated/l10n.dart';
+import 'package:brorum/managers/bro_global_manager.dart';
 import 'package:brorum/managers/routes/bro_routes_manager.dart';
 import 'package:brorum/types/routes/bro_routes.dart';
 import 'package:brorum/types/ui/principal_sub_page_types.dart';
@@ -11,6 +12,7 @@ import 'package:brorum/ui/pages/skeletons/sub_principal_page_skeleton.dart';
 import 'package:brorum/ui/widgets/list_tiles/bro_list_tiles_group.dart';
 import 'package:brorum/ui/widgets/list_tiles/parameter_menu_list_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// This is the UI of the settings page of the application.
 class SettingsPageUI extends StatelessWidget {
@@ -33,6 +35,24 @@ class SettingsPageUI extends StatelessWidget {
                 title: tr.settingsThemeTitle,
                 subtitle: tr.settingsThemeSubtitle,
                 onTap: () => globalGetIt().get<BroRoutesManager>().push(BroRoutes.themesSettings),
+              ),
+            ],
+          ),
+          SizedBox(height: 40.h),
+          BroListTilesGroup(
+            title: "(TR) Application",
+            children: [
+              ParameterMenuListTile(
+                icon: Icons.info,
+                title: "(TR) Licenses",
+                subtitle: "(TR) View the licenses used in the application",
+                onTap: () => showLicensePage(context: context),
+              ),
+              ParameterMenuListTile(
+                icon: Icons.numbers,
+                title: "(TR) Version",
+                subtitle: "v${BroGlobalManager.instance.packageInfo.version}",
+                tappable: false,
               ),
             ],
           ),
