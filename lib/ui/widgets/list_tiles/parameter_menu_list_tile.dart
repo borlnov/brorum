@@ -19,6 +19,9 @@ class ParameterMenuListTile extends StatelessWidget {
   /// {@macro BroContentListTile.subtitle}
   final String subtitle;
 
+  /// Whether the list tile is tappable or not.
+  final bool tappable;
+
   /// The callback called when the user taps on the list tile.
   final VoidCallback? onTap;
 
@@ -29,6 +32,7 @@ class ParameterMenuListTile extends StatelessWidget {
     required this.title,
     required this.subtitle,
     this.onTap,
+    this.tappable = true,
   });
 
   @override
@@ -36,8 +40,7 @@ class ParameterMenuListTile extends StatelessWidget {
     final themeData = Theme.of(context);
     final actExt = themeData.extension<BroSpecificColors>()!;
 
-    return InkWell(
-      onTap: onTap,
+    return _wrapInkWell(
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: graphical_constants.mainHorizontalPadding.w,
@@ -60,15 +63,17 @@ class ParameterMenuListTile extends StatelessWidget {
                 child: BroContentListTile(
                   title: title,
                   subtitle: subtitle,
-                  enabled: onTap != null,
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    size: 16.w,
-                    color: _applyDisabledColorIfNeeded(
-                      actExt: actExt,
-                      color: themeData.colorScheme.outline,
-                    ),
-                  ),
+                  enabled: onTap != null || !tappable,
+                  trailing: tappable
+                      ? Icon(
+                          Icons.arrow_forward_ios,
+                          size: 16.w,
+                          color: _applyDisabledColorIfNeeded(
+                            actExt: actExt,
+                            color: themeData.colorScheme.outline,
+                          ),
+                        )
+                      : null,
                 ),
               ),
             ],
@@ -81,5 +86,14 @@ class ParameterMenuListTile extends StatelessWidget {
   /// This method is used to apply the disabled color to the given color if the list tile is
   /// disabled (onTap is null).
   Color _applyDisabledColorIfNeeded({required BroSpecificColors actExt, required Color color}) =>
-      onTap == null ? actExt.getDisabledColor(color) : color;
+      (onTap == null && tappable) ? actExt.getDisabledColor(color) : color;
+
+  /// This method is used to wrap the given child with an InkWell if the list tile is tappable.
+  Widget _wrapInkWell({required Widget child}) {
+    if (!tappable) {
+      return child;
+    }
+
+    return InkWell(onTap: onTap, child: child);
+  }
 }

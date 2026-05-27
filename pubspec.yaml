@@ -67,6 +67,9 @@ dependencies:
   act_intl_ui:
     path: actlibs/act_intl_ui
 
+  act_licenses_manager:
+    path: actlibs/act_licenses_manager
+
   act_life_cycle:
     path: actlibs/act_life_cycle
 
@@ -151,6 +154,10 @@ flutter:
     - assets/
     - assets/config/
     - assets/graphics/
+
+    # The licenses are included as assets to be displayed in the licenses page of the application.
+    - LICENSES/
+    - actlibs/LICENSES/
 
 flutter_intl:
   enabled: true

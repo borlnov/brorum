@@ -5,6 +5,7 @@
 import 'package:act_config_manager/act_config_manager.dart';
 import 'package:act_global_manager/act_global_manager.dart';
 import 'package:act_intl/act_intl.dart';
+import 'package:act_licenses_manager/act_licenses_manager.dart';
 import 'package:act_themes_manager/act_themes_manager.dart';
 
 /// Builder of the [BroConfigBuilder]
@@ -17,7 +18,8 @@ class BroConfigBuilder extends AbstractConfigBuilder<BroConfigManager> {
 ///
 /// This is a placeholder for future configuration options.
 /// Add configuration variables here as needed.
-class BroConfigManager extends AbsUsualConfigManager with MixinLocaleConfig, MixinThemesConfig {
+class BroConfigManager extends AbsUsualConfigManager
+    with MixinLocaleConfig, MixinThemesConfig, MixinLicensesConfig {
   // Add configuration variables here as the project evolves.
   // Example:
   // final serverHostname = const ConfigVar<String>("server.hostname");
